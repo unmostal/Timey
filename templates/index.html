@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Задания на сегодня</h1>
+
 <a href="/tasks">Создать задание</a>
 {% for item in news%}
 {% if current_user.is_authenticated and current_user == item.user %}
@@ -15,6 +16,7 @@
     </div>
 {% endif %}
 <div class="col-md6 border rounded">
+
     <h2>{{item.title}}</h2>
     <div>
         {{item.content}}
@@ -23,5 +25,22 @@
         Автор - {{item.user.name}}
     </div>
 </div>
+<div style="padding-top: 50px" class="col-md-5">
+      <div class="row">
+        <div class="col">
+          <h3>Погода в Москве сейчас</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Температура: {{temp}} градусов Цельсия</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>Влажность: {{hum}}%</p>
+        </div>
+      </div>
+
 {% endfor %}
 {% endblock %}
