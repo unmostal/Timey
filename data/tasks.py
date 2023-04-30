@@ -5,8 +5,8 @@ from sqlalchemy import orm
 from .db_session import SqlAlchemyBase
 
 
-class News(SqlAlchemyBase):
-    __tablename__ = 'news'
+class Tasks(SqlAlchemyBase):
+    __tablename__ = 'tasks'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
