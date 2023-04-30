@@ -91,7 +91,7 @@ def add_tasks():
         tasks = Tasks()
         tasks.title = form.title.data
         tasks.content = form.content.data
-        tasks.is_private = form.is_private.data
+        tasks.is_private = True
         current_user.tasks.append(tasks)
         db_sess.merge(current_user)
         db_sess.commit()
@@ -111,7 +111,7 @@ def edit_tasks(id):
         if tasks:
             form.title.data = tasks.title
             form.content.data = tasks.content
-            form.is_private.data = tasks.is_private
+            form.is_private.data = True
         else:
             abort(404)
     if form.validate_on_submit():
@@ -122,7 +122,7 @@ def edit_tasks(id):
         if tasks:
             tasks.title = form.title.data
             tasks.content = form.content.data
-            tasks.is_private = form.is_private.data
+            tasks.is_private = True
             db_sess.commit()
             return redirect('/')
         else:
